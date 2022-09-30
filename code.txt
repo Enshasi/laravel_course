@@ -1,0 +1,26 @@
+1 - file: .gitignore => الملفات يلي بديش اياها ترتفع على جيت هاب
+
+2 - Proplem files vendor
+        A-composer install
+
+//لو بدي كمان شخص يعدل معي على الكود  setting - Collaborators - password - name
+3- add code in github
+    A-git init                //  مرة واحد فقط
+    B-git add .                كل مرة بستخدمها  //
+    c-git commit -m "first commit"  //كل مرة
+    d-git branch -M main
+    g-git remote add origin https://github.com/Enshasi/laravel_course.git
+    c-git push -u origin main   //كل مرة
+
+لما ارجع اضيف
+     1-git add .
+     2-git commit -m "Second  commit"
+     3-git push -u origin main
+
+ لما بدي انزل مشروع
+1 - git clone https://github.com/Enshasi/laravel_course.git
+2 - cd laravel_course
+3 - composer install      => install Folder vendor
+4 - copy file .env.example -> replace  .env.exampleCopy  -> .env
+5 - php artisan key:generate
+6 - اذابدي احدث اشي ارتفع جديد بعمل  git pull  OR  git add .  ,  git pull
