@@ -24,3 +24,16 @@
 4 - copy file .env.example -> replace  .env.exampleCopy  -> .env
 5 - php artisan key:generate
 6 - اذابدي احدث اشي ارتفع جديد بعمل  git pull  OR  git add .  ,  git pull
+
+/////////////////////////////
+1 -  php artisan vendor:publish
+بقدر من خلاله اظهر الصفحات على لفيو مثل صفات الأخطاء
+
+
+/////////////////////////////
+
+
+
+///...........
+Erros in view #
+2 - 419 PAGE EXPIRED -> انو ابتحاج CSRF  in Form
