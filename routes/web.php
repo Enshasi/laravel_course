@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FormsController;
+use App\Http\Controllers\SendMessageController;
 use App\Http\Controllers\Site2Controller;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
@@ -43,3 +44,12 @@ Route::post('form2Data' , [FormsController::class  , 'form2_data'])->name('form2
 
 Route::get('form3' , [FormsController::class  , 'form3'])->name('form3');
 Route::post('form3Data' , [FormsController::class  , 'form3_data'])->name('form3_data');
+
+Route::get('form4' , [FormsController::class  , 'form4'])->name('form4');
+Route::post('form4Data' , [FormsController::class  , 'form4_data'])->name('form4_data');
+
+Route::get('sendMessage' , [SendMessageController::class , 'send']);
+
+Route::get('contact-us' , [SendMessageController::class , 'contact_us']);
+Route::post('contact-us' , [SendMessageController::class , 'contact_us_data'])->name('contact');
+

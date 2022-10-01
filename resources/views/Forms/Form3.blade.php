@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
+    {{--
     @if ($errors->any())
 
     <ul>
@@ -15,11 +16,13 @@
             <li class='alert alert-danger'> {{ $error }}</li>
         @endforeach
     </ul>
-
     @endif
+    --}}
+
+
     <div class="container mt-5">
         <h1>Form Basic</h1>
-        <form action="{{ route('form3_data') }}" method="POST">
+        <form action="{{ route('form3_data') }}" method="POST" autocomplete="off">
             @csrf
             <div class="my-3">
                 <label for="">
@@ -29,7 +32,7 @@
                 <input type="text" class="form-control w-75 my-3 @error('userName')
 
                 is-invalid
-                @enderror" name='userName'>
+                @enderror" name='userName' value="{{ old('userName') }}">
                 @error('userName')
                         <small class='invalid-feedback'>{{ $message }}</small>
                 @enderror
@@ -40,12 +43,12 @@
                     Email
                 </label>
 
-                <input type="email" class="form-control w-75 my-3
+                <input type="text" class="form-control w-75 my-3
                     @error('email')
                             is-invalid
                     @enderror
 
-                " name='email'>
+                " name='email' value="{{ old('email') }}">
                 @error('email')
 
                 <small class='invalid-feedback'> {{ $message }}</small>
@@ -74,17 +77,18 @@
                 </label>
 
                 <input type="password" class="form-control w-75 my-3
-                @error('confirm_password')
+                @error('password_confirmation')
 
                 is-invalid
                 @enderror
-                " name='confirm_password'>
+                " name='password_confirmation'>
 
-                @error('confirm_password')
+                @error('password_confirmation')
 
                 <small class='invalid-feedback'> {{ $message }}</small>
 
-                @enderror </div>
+                @enderror
+                </div>
 
             <div class="text-center">
                 <button class='btn btn-success mt-4'>Send</button>

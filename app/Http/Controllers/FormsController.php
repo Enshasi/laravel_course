@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Nette\Utils\Random;
 
 class FormsController extends Controller
 {
@@ -41,12 +42,22 @@ class FormsController extends Controller
     }
     public function form3_data(Request $request){
         $request->validate([
-            'userName' =>'required',
-            'email' =>'required',
-            'password' =>'required',
-            'confirm_password' =>'required',
+            // 'userName' =>"required|min:5|max:15",
+            'userName'=>['required' , 'min:3' , 'max:15'],
+            'email' =>['required' , 'email'],
+            'password' =>'required|confirmed',
         ]);
 
         dd($request->all());
+    }
+    public function form4()
+    {
+        return view('Forms.Form4');
+    }
+    public function form4_data(Request $request)
+    {
+        $new_name = rand().time().$request->file('cv')->getClientOriginalName();
+        $request->file('cv')->move(public_path('uploads') ,$new_name );
+        // dd($request->all());
     }
 }

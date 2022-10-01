@@ -37,3 +37,18 @@
 ///...........
 Erros in view #
 2 - 419 PAGE EXPIRED -> انو ابتحاج CSRF  in Form
+
+////////
+//Mail
+
+1 - setting Mail in .env
+2 -controller /   Mail::to('asdsd@gmail.com')->send(new TestMail)
+3 - php artisan make:mail TestMail
+
+/////
+migration
+1 - php artisan migrate
+2 - php artisan migrate:fresh
+4 - php artisan migrate:rollback   //Delete last migrate db
+5 - php artisan migrate:reset   // delete All
+6 - php artisan migrate:status   // الملفات الشغالة ولاءx
