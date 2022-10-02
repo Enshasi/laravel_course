@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FormsController;
+use App\Http\Controllers\PostsController;
 use App\Http\Controllers\SendMessageController;
 use App\Http\Controllers\Site2Controller;
 use App\Http\Controllers\SiteController;
@@ -52,4 +53,11 @@ Route::get('sendMessage' , [SendMessageController::class , 'send']);
 
 Route::get('contact-us' , [SendMessageController::class , 'contact_us']);
 Route::post('contact-us' , [SendMessageController::class , 'contact_us_data'])->name('contact');
+
+
+Route::prefix('posts')->name('post.')->group(function(){
+
+    Route::get('/index' , [PostsController::class,'index'])->name('index');
+});
+
 

@@ -52,3 +52,11 @@ migration
 4 - php artisan migrate:rollback   //Delete last migrate db
 5 - php artisan migrate:reset   // delete All
 6 - php artisan migrate:status   // الملفات الشغالة ولاءx
+7 - php artisan migrate:fresh --seed
+///
+factory
+
+1 - php artisan make:Factory PostFactory  //name Model
+2 - seed code
+3 -php artisan db:seed
+
