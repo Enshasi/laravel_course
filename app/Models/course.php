@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class course extends Model
 {
     use HasFactory;
-    // protected $table = 'Post';
-    protected $fillable = ['name' , 'content' , 'image'];
+    protected $fillable = ['name' , 'content' ];
 }

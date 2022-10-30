@@ -1,11 +1,14 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SiteController;
 use App\Http\Controllers\FormsController;
 use App\Http\Controllers\PostsController;
-use App\Http\Controllers\SendMessageController;
 use App\Http\Controllers\Site2Controller;
-use App\Http\Controllers\SiteController;
-use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\CoursesController;
+use App\Http\Controllers\RelationController;
+use App\Http\Controllers\SendMessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,9 +58,21 @@ Route::get('contact-us' , [SendMessageController::class , 'contact_us']);
 Route::post('contact-us' , [SendMessageController::class , 'contact_us_data'])->name('contact');
 
 
-Route::prefix('posts')->name('post.')->group(function(){
 
-    Route::get('/index' , [PostsController::class,'index'])->name('index');
-});
+    // Route::get('/index' , [PostsController::class,'index'])->name('index');
+    // Route::get('/create' , [PostsController::class,'create'])->name('create');
+    // Route::post('/store' , [PostsController::class,'store'])->name('store');
+    // Route::delete('/destroy/{id}' , [PostsController::class,'destroy'])->name('destroy');
+    // Route::get('/edit/{id}' , [PostsController::class,'edit'])->name('edit');
+    // Route::put('/update/{id}' , [PostsController::class,'update'])->name('update');
 
 
+
+
+Route::resource('posts' , PostsController::class);
+Route::resource('courses' , CoursesController::class);
+
+//relation
+
+Route::get('/many_to_many' , [RelationController::class  , 'many_to_many']);
+Route::post('many_to_many_data' , [RelationController::class  ,'many_to_many_data'])->name('many-data');

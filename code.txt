@@ -59,4 +59,19 @@ factory
 1 - php artisan make:Factory PostFactory  //name Model
 2 - seed code
 3 -php artisan db:seed
+///
+pagenator   -> التحكم في عرض كم من صفحة
 
+1 - controller : $posts = Post::paginate(10);
+2 - view : {{ $posts->links()  }}  تحت الجدول برا اللوب
+
+#bootstrab تفعيل (replace taliwindcss on bootstrab)
+3  -App\Providers\AppServiceProvider :  public function boot()
+{Paginator::useBootstrapFive();}
+
+///
+
+1- php artisan make:controller CoursesController -r
+2 - php artisan make:model Course -m
+2 - php artisan make:model Course -mcr
+//model , migration , controller -res

@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class instation extends Model
 {
     use HasFactory;
-    // protected $table = 'Post';
-    protected $fillable = ['name' , 'content' , 'image'];
+    function user(){
+        return $this->belongsTo(User::class);
+    }
 }

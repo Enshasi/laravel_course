@@ -13,7 +13,7 @@
     <div class="container mb-5 mt-5">
         <div class="d-flex justify-content-between align-items-center">
             <h1 class='mb-5'>Basic Table Show </h1>
-            <a href="{{ route('posts.create') }}" class='btn btn-success mb-5    '>
+            <a href="{{ route('courses.create') }}" class='btn btn-success mb-5    '>
                 Create Posts
             </a>
         </div>
@@ -24,7 +24,7 @@
         @endif
 
 
-        <form action="{{ route('posts.index') }}" method='get' >
+        <form action="{{ route('courses.index') }}" method='get' >
             <div class="input-group mb-3">
                 <input type="text"  value= '{{ request()->search }}' name='search' class="form-control" placeholder="Search ...." >
 
@@ -33,7 +33,7 @@
                     <option {{ request()->count == 15?'selected':'' }} value="15">15</option>
                     <option {{ request()->count == 20?'selected':'' }} value="20">20</option>
                     <option {{ request()->count == 25?'selected':'' }} value="25">25</option>
-                    <option {{ request()->count == $posts->total()?'selected':'' }} value="{{ $posts->total() }}">All</option>
+                    <option {{ request()->count == $courses->total()?'selected':'' }} value="{{ $courses->total() }}">All</option>
                 </select>
 
                 <button class="btn btn-dark" type="submit" id="button-addon2">Button</button>
@@ -45,26 +45,24 @@
             <tr class='table-dark'>
                 <th>id</th>
                 <th>Name</th>
-                <th>Image</th>
+
                 <th>Content</th>
                 <th>Created At </th>
                 <th>Updated At </th>
                 <td>Action </td>
             </tr>
-            @foreach ($posts as $post )
+            @foreach ($courses as $course )
 
             <tr>
-                <td>{{$post->id }}</td>
+                <td>{{$course->id }}</td>
 
-                <td>{{$post->name}}</td>
-                <td >
-                    <img he width='90' src="{{ asset('uploads/'.$post->image) }}" alt="" srcset="">
-                </td>
-                <td>{{!! $post->content !!}}</td>
-                <td>{{$post->created_at}}</td>
-                <td>{{$post->updated_at}}</td>
+                <td>{{$course->name}}</td>
+
+                <td>{{!! $course->content !!}}</td>
+                <td>{{$course->created_at}}</td>
+                <td>{{$course->updated_at}}</td>
                 <td>
-                    <form action="{{ route('posts.edit', $post->id) }}" method='get' class='d-inline'>
+                    <form action="{{ route('courses.edit', $course->id) }}" method='get' class='d-inline'>
                         @csrf
 
                     <button class='btn btn-success' >
@@ -72,7 +70,7 @@
                     </button>
                     </form>
 
-                    <form action="{{ route('posts.destroy', $post->id) }}" method='post' class='d-inline'>
+                    <form action="{{ route('courses.destroy', $course->id) }}" method='post' class='d-inline'>
                         @csrf
                         @method('delete')
                     <button class='btn btn-danger' onclick='return confirm("Are Your Sure in Delte")'>
@@ -84,7 +82,7 @@
             </tr>
             @endforeach
         </table>
-        {{ $posts->appends($_GET)->links()  }}
+        {{ $courses->appends($_GET)->links()  }}
     </div>
 
 {{-- //library sweet alert  // Dont Forget https:--}}
@@ -97,14 +95,6 @@
         'success'
     )
    @endif
-</script>
 
-    <script>
-        let alert = document.querySelector('.alert');
-
-        setTimeout(() => {
-            alert.remove();
-        }, 3000);
-    </script>
 </body>
 </html>
